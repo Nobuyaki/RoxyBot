@@ -14,8 +14,8 @@ node . || node index.js
 ```
 
 #### config.json
+[config.json](https://github.com/Nobuyaki/RoxyBot/blob/main/data/config.json)
 ```bash
-["./data/config.json"](https://github.com/Nobuyaki/RoxyBot/blob/main/data/config.json)
 {
   "token": "your-bot-token-here",
   "prefix": "r!"
@@ -23,6 +23,6 @@ node . || node index.js
 ```
 
 #### add commands
-["./commands/${dir}/${file}"](https://github.com/Nobuyaki/RoxyBot/blob/main/commands)
-["discord.js/guide"](https://discordjs.guide/) 
+* [commands](https://github.com/Nobuyaki/RoxyBot/blob/main/commands)
+* [discord.js/guide](https://discordjs.guide/) 
 
