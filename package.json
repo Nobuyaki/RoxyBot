@@ -2,6 +2,7 @@
   "name": "Roxy-bot",
   "version": "1.0.0",
   "description": "Bot Discord Termux",
+  "depecrated": false,
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
