@@ -12,8 +12,8 @@
     "bot-discord",
     "discord.js"
   ],
-  "homepage": "https://github.com/Nobuyaki/RoxyBot/" 
-  "author": "Nobuyaki"
+  "homepage": "https://github.com/Nobuyaki/RoxyBot/",
+  "author": "Nobuyaki",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Nobuyaki/RoxyBot"
