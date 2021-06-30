@@ -1,5 +1,5 @@
 # RoxyBot
-Bot discord termux
+Bot discord termux, template doang
 
 
 # FOR TERMUX
