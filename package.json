@@ -1,0 +1,24 @@
+{
+  "name": "botdiscord",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "bot-discord",
+    "discord.js"
+  ],
+  "author": "Nobuyaki",
+  "license": "ISC",
+  "dependencies": {
+    "ascii-table": "0.0.9",
+    "dateformat": "^4.5.1",
+    "discord.js": "^12.5.3",
+    "dotenv": "^10.0.0",
+    "humanize-duration": "^3.27.0",
+    "moment": "^2.29.1",
+    "node-fetch": "^2.6.1"
+  }
+}
