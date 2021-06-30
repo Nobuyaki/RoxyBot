@@ -13,8 +13,8 @@
   ],
   "homepage": "https://github.com/Nobuyaki/RoxyBot/" 
   "author": {
-     "name": "Nobuyaki"
-  },
+    "name": "Nobuyaki"
+  }, 
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Nobuyaki/RoxyBot"
