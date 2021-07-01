@@ -21,30 +21,10 @@ config({
     require(`./handlers/${handler}`)(client);
 });
 
-client.on("ready", () => {
-   console.log("ready!")
-   client.user.setActivity(`${prefix} is My prefix`, {
-       type: "LISTENING"
-   });
-});
-
-client.on("message", async message => {
-  
-   if (message.author.bot) return;
-   if (!message.guild) return;
-   if (!message.content.startsWith(prefix)) return;
-   if (!message.member) message.member = await message.guild.fetchMember(message);
-  
-   const args = message.content.slice(prefix.length).trim().split(/ +/g);
-   const cmd = args.shift().toLowerCase();
-  
-   if (cmd.length === 0) return;
-  
-   let command = client.commands.get(cmd);
-   if (!command) command = client.commands.get(client.aliases.get(cmd));
-  
-   if(command)
-      command.run(client, message, args);
-});
+const events = fs.readdirSync("./events/");
+  for (let event of events) {
+    let file = require(`../events/${event}`);
+    client.on(event.split(".")[0], (...args) => file(client, ...args));
+};
 
 client.login(token) 
