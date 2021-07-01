@@ -8,7 +8,7 @@ module.exports = {
     tags: "info",
 
     run: async (client, message, args) => {
-        let member = message.mentions.members.first() || message.member || messsage.guild.members.cache.get(args[0]), 
+        let member = message.mentions.members.first() || message.member,
             user  = member.user;
         if (!member) {
             throw 'Member Tidak Di Temukan!';
