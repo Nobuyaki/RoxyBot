@@ -25,9 +25,9 @@ module.exports = {
         .setTimestamp()
         .addField(':beginner:|UserName', `${user.username}#${user.discriminator} ${nick}`)
         .addField(':pencil:|UserId', '') 
-        .addField('|Status', `${user.presence.status[0].toUpperCase() + user.presence.status.slice(1)}`)
-        .addField('🔺|Highest Roles', role.slice(0,-high), true)
-        .addField('📁|All Roles', role.slice(0,-1).join(',\n'), true)
+        .addField(':barber:|Status', `${user.presence.status[0].toUpperCase() + user.presence.status.slice(1)}`)
+        .addField(':pushpin:|Highest Roles', role.slice(0,-high), true)
+        .addField(':triangular_flag_on_post:|All Roles', role.slice(0,-1).join(',\n'), true)
         message.channel.send(embed)
     }
 }
