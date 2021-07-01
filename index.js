@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const { config } = require('dotenv'):
 const fs = require('fs');
 
-const { token, prefix } = require("./data/config.json");
+const data = require("./data/config.js");
 
 const client = new Discord.Client({
      disableEveryone: true
@@ -10,6 +10,9 @@ const client = new Discord.Client({
 
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
+client.data = require('./data/config.js');
+client.emotes = client.data.emotes;
+client.colors = client.data.colors;
 
 client.categories = fs.readdirSync("./commands/");
 
