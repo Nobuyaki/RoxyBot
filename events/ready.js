@@ -14,5 +14,5 @@ module.exports = (client) => {
       if (index > presences.length - 1) index = 0;
       client.user.setActivity(presences[index].activity, { type: presences[index].type });
       index++;
-      }, 5000);
+      }, 20000);
 }
