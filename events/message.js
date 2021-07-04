@@ -1,6 +1,7 @@
 const { prefix } = require("../data/config.json")
 
 module.exports = async (client, message) => {
+    console.log(`${message.author.username} -> ${message.content}`);
     if (message.author.bot) return;
     if (!message.guild) return;
     if (!message.content.startsWith(prefix)) return;
