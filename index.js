@@ -20,7 +20,7 @@ config({
 const handlers = fs.readdirSync("./handlers/");
   for (let handler of handlers) {
     let file = require(`../handlers/${handler}`);
-    client.on(event.split(".")[0], (...args) => file(client, ...args));
+    require(handler.split(".")[0])(client)
 };
 
 client.login(token) 
