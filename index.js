@@ -11,21 +11,15 @@ const client = new Discord.Client({
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
 
-
-
 client.categories = fs.readdirSync("./commands/");
 
 config({
     path: __dirname + "/.env"
 });
 
-["command"].forEach(handler => {
-    require(`./handlers/${handler}`)(client);
-});
-
-const events = fs.readdirSync("./events/");
-  for (let event of events) {
-    let file = require(`../events/${event}`);
+const handlers = fs.readdirSync("./handlers/");
+  for (let handler of handlers) {
+    let file = require(`../handlers/${handler}`);
     client.on(event.split(".")[0], (...args) => file(client, ...args));
 };
 
