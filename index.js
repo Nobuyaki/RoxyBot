@@ -11,16 +11,12 @@ const client = new Discord.Client({
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
 
-client.categories = fs.readdirSync("./commands/");
-
 config({
     path: __dirname + "/.env"
 });
 
-const handlers = fs.readdirSync("./handlers/");
-  for (let handler of handlers) {
-    let file = require(`../handlers/${handler}`);
-    require(handler.split(".")[0])(client)
-};
+["command", "events"].forEach(handler => {
+  require(`./handlers/${handler}`)(client);
+});
 
 client.login(token) 
