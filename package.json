@@ -26,6 +26,7 @@
     "dotenv": "^10.0.0",
     "humanize-duration": "^3.27.0",
     "moment": "^2.29.1",
-    "node-fetch": "^2.6.1"
+    "node-fetch": "^2.6.1", 
+    "jsoning": "^0.11.21"
   }
 }
