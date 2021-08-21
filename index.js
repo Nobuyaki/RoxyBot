@@ -2,8 +2,10 @@ const Discord = require('discord.js');
 const { config } = require('dotenv'):
 const fs = require('fs');
 
-const { token, prefix } = require("./data/config.json");
+const jsoning = require("jsoning");
+const database = new jsoning("database.json");
 
+const { token, prefix } = require("./data/config.json");
 const client = new Discord.Client({
      disableEveryone: true
 });
