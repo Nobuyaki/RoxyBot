@@ -115,6 +115,7 @@ module.exports = {
 
   async function play(track) {
     try {
+      const queue = message.client.queue.get(message.guild.id);
       const data = message.client.queue.get(message.guild.id);
       if (!track) {
        setTimeout(function () {
