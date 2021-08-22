@@ -28,7 +28,7 @@ module.exports = {
         "**Loop is" +
           (queue.loop == true ? " Enabled " : " Disabled ") +
         "for current song :white_check_mark: **"
-      )
-    } 
-  );
+      );
+    }; 
+  )
 };
