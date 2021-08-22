@@ -117,9 +117,11 @@ module.exports = {
     try {
       const data = message.client.queue.get(message.guild.id);
       if (!track) {
-        data.channel.send("Queue is empty, Leaving voice channel");
+        setTimeout(() => {
+        data.channel.send("I was innactive for too long, Bye👋");
         message.guild.me.voice.channel.leave();
         return deletequeue(message.guild.id);
+        }, 50000);
       }
       data.connection.on("disconnect", () => deletequeue(message.guild.id));
       const source = await ytdl(track.url, {
