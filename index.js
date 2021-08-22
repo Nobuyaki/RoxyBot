@@ -17,7 +17,7 @@ config({
     path: __dirname + "/.env"
 });
 
-["command", "events"].forEach(handler => {
+["command", "event"].forEach(handler => {
   require(`./handlers/${handler}`)(client);
 });
 
