@@ -9,7 +9,7 @@ module.exports = {
     tags: "info",
 
 run: async (client, message, args) => {
-  let user = message.mentions.users.first() || messsage.guild.members.cache.get(args[0]) || message.author
+  let user = message.mentions.users.first() || message.guild.members.cache.get(args[0]) || message.author
 
   if (user.presence.status === "dnd") user.presence.status = "Do Not Disturb";
   if (user.presence.status === "idle") user.presence.status = "Idle";
