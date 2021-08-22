@@ -10,6 +10,7 @@ const client = new Discord.Client({
      disableEveryone: true
 });
 
+client.queue = new Map();
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
 
