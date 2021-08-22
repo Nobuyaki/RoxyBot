@@ -3,7 +3,7 @@ const jsoning = require("jsoning");
 const database = new jsoning("../data/database.json");
 
 module.exports = async (client, message) => {
-    Gprefix = database.get() || prefix;
+    const Gprefix = database.get() || prefix;
     if (message.author.bot) return;
     if (!message.guild) return;
     if (!message.content.startsWith(Gprefix)) return;
