@@ -1,5 +1,4 @@
-const Discord = require('discord.js'); 
-const moment = require('moment');
+const Discord = require('discord.js')
 
 module.exports = {
     name: "test",
@@ -8,45 +7,50 @@ module.exports = {
     usage: `<prefix>userinfo @user`,
     tags: "info",
 
-run: async (client, message, args) => {
-  let user = message.mentions.users.first() || message.guild.cache.get(args[0]) || message.author
+    run: async (client, message, args) => {
+  let mention = message.mentions.users.first();
+  let userID = message.guild.members.cache.get(args[0]);
+  let self = !args[0];
+  let server = args[0] === "server";
+  const userRegex = new RegExp(args.join(" "), "i");
 
-  if (user.presence.status === "dnd") user.presence.status = "Do Not Disturb";
-  if (user.presence.status === "idle") user.presence.status = "Idle";
-  if (user.presence.status === "offline") user.presence.status = "Offline";
-  if (user.presence.status === "online") user.presence.status = "Online";
+  let find = message.guild.members.cache.find(a => {
+    return userRegex.test(a.nickname) ? userRegex.test(a.nickname) : a.user.username.toLowerCase() === args.join(' ').toLowerCase();
+  })
 
-  function game() {
-    let game;
-    if (user.presence.activities.length >= 1) game = `${user.presence.activities[0].type} ${user.presence.activities[0].name}`;
-    else if (user.presence.activities.length < 1) game = "None"
-    return game;
-  }
+  //embed
+  let embed = new Discord.MessageEmbed().setColor('#7f5ce7');
 
-  let x = Date.now() - user.createdAt;
-  let y = Date.now() - message.guild.members.cache.get(user.id).joinedAt;
-  let created = Math.floor(x / 86400000);
-  let joined = Math.floor(y / 86400000);
-
-  const member = message.guild.member(user);
-  let nickname = member.nickname !== undefined && member.nickname !== null ? member.nickname : "None";
-  let createdate = moment.utc(user.createdAt).format("dddd, MMMM Do YYYY, HH:mm:ss");
-  let joindate = moment.utc(member.joinedAt).format("dddd, MMMM Do YYYY, HH:mm:ss");
-  let status = user.presence.status;
-  let avatar = user.avatarURL({ size: 4096 });
-
-  const embed = new Discord.MessageEmbed()
-    .setAuthor(user.tag, avatar)
-    .setThumbnail(avatar)
-    .setTimestamp()
-    .setColor('#7f5ce7')
-    .addField("ID", user.id, true)
-    .addField("Nickname", nickname, true)
-    .addField("Created Account Date", `${createdate} \nsince ${created} day(s) ago`, true)
-    .addField("Joined Guild Date", `${joindate} \nsince ${joined} day(s) ago`, true)
-    .addField("Status", status, true)
-    .addField("Game", game(), true)
-
-    message.channel.send(embed);
-  }
-}
+  //get avatar and send to user
+  if (mention) {
+    embed.setAuthor(mention.tag, mention.displayAvatarURL({ size: 4096, dynamic: true }))   //author embed
+    embed.setDescription(`[Avatar URL](${mention.displayAvatarURL({ size: 4096, dynamic: true })})`) //redirect to avatar link
+    embed.setImage(mention.displayAvatarURL({ size: 4096, dynamic: true }).replace('.webp', '.png')) //image of avatar
+    return message.channel.send(embed); //send this message to user
+  } else;
+  if (userID) {
+    embed.setAuthor(userID.user.tag, userID.user.displayAvatarURL({ size: 4096, dynamic: true }))
+    embed.setDescription(`[Avatar URL](${userID.user.displayAvatarURL({ size: 4096, dynamic: true })})`)
+    embed.setImage(userID.user.displayAvatarURL({ size: 4096, dynamic: true }).replace('.webp', '.png'))
+    return message.channel.send(embed); //send this message to user
+  } else;
+  if (self) {
+    embed.setAuthor(message.author.tag, message.author.displayAvatarURL({ size: 4096, dynamic: true }))
+    embed.setDescription(`[Avatar URL](${message.author.displayAvatarURL({ size: 4096, dynamic: true })})`)
+    embed.setImage(message.author.displayAvatarURL({ size: 4096, dynamic: true }).replace('.webp', '.png'))
+    return message.channel.send(embed); //send this message to user
+  } else;
+  if (server) {
+    embed.setAuthor(message.guild.name, message.guild.iconURL())
+    embed.setDescription(`[Avatar URL Link](${message.guild.iconURL({ size: 4096, dynamic: true })})`)
+    embed.setImage(message.guild.iconURL({ size: 4096, dynamic: true }).replace('.webp', '.png'))
+    return message.channel.send(embed); //send this message to user
+  } else;
+  if (find) {
+    embed.setAuthor(find.user.tag, find.user.displayAvatarURL({ size: 4096, dynamic: true }))
+    embed.setDescription(`[Avatar URL](${find.user.displayAvatarURL({ size: 4096, dynamic: true })})`)
+    embed.setImage(find.user.displayAvatarURL({ size: 4096, dynamic: true }).replace('.webp', '.png'))
+    return message.channel.send(embed);
+  } else return;
+ }
+};
