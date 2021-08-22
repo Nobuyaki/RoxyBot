@@ -35,7 +35,7 @@
     "node-opus": "^0.3.3",
     "opusscript": "^0.0.7",
     "yt-search": "^2.2.4",
-    "ytdl-core": "^4.1.1"
+    "ytdl-core": "^4.1.1",
     "dotenv": "^10.0.0",
     "humanize-duration": "^3.27.0",
     "moment": "^2.29.1",
