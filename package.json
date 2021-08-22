@@ -19,10 +19,23 @@
     "url": "git+https://github.com/Nobuyaki/RoxyBot"
   }, 
   "license": "ISC",
+  "engines": {
+    "node": "14.x"
+  },
   "dependencies": {
+    "@discordjs/opus": "^0.3.2",
+    "discord-ytdl-core": "^5.0.1",
     "ascii-table": "0.0.9",
     "dateformat": "^4.5.1",
     "discord.js": "^12.5.3",
+    "ffmpeg": "0.0.4",
+    "ffmpeg-static": "^4.2.7",
+    "fs": "0.0.1-security",
+    "lyrics-finder": "^21.4.0",
+    "node-opus": "^0.3.3",
+    "opusscript": "^0.0.7",
+    "yt-search": "^2.2.4",
+    "ytdl-core": "^4.1.1"
     "dotenv": "^10.0.0",
     "humanize-duration": "^3.27.0",
     "moment": "^2.29.1",
