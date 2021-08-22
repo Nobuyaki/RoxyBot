@@ -37,9 +37,8 @@
     "yt-search": "^2.2.4",
     "ytdl-core": "^4.1.1",
     "dotenv": "^10.0.0",
-    "humanize-duration": "^3.27.0",
     "moment": "^2.29.1",
     "node-fetch": "^2.6.1", 
-    "jsoning": "^0.11.21"
+    "string-progressbar": "^1.0.4"
   }
 }
