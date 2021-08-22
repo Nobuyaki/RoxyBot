@@ -39,7 +39,7 @@ run: async (client, message, args) => {
     .setAuthor(user.tag, avatar)
     .setThumbnail(avatar)
     .setTimestamp()
-    .setColor(client.warna.kato)
+    .setColor('#7f5ce7')
     .addField("ID", user.id, true)
     .addField("Nickname", nickname, true)
     .addField("Created Account Date", `${createdate} \nsince ${created} day(s) ago`, true)
