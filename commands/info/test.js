@@ -2,9 +2,9 @@ const Discord = require('discord.js');
 const moment = require('moment');
 
 module.exports = {
-    name: "userinfo",
+    name: "test",
     description: "Menampilkan Info User",
-    aliases: [ "infouser" ],
+    aliases: [ "" ],
     usage: `<prefix>userinfo @user`,
     tags: "info",
 
