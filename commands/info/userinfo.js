@@ -8,11 +8,8 @@ module.exports = {
     tags: "info",
 
     run: async (client, message, args) => {
-        let member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.member,
-            user  = member.user;
-        if (!member) {
-            throw 'Member Tidak Di Temukan!';
-        }
+        let user = message.mentions.users.first() || message.author || messsage.guild.members.cache.get(args[0])
+        const member = message.guild.member(user);
 
         let name = message.guild.member(member);
         let nick = name.nickname !== undefined && name.nickname !== null ? `|| ${name.nickname}` : "";
