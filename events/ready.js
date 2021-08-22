@@ -1,7 +1,6 @@
 const { prefix } = require("../data/config.json");
 
 module.exports = (client) => {
-      console.log(`Hi, ${client.user.username} is now online!`);
       let presences = [
       { type: "LISTENING", activity: `${prefix}help` },
       { type: "PLAYING", activity: `With My Owner` },
