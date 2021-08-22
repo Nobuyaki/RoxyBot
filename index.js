@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const { config } = require('dotenv'):
+const { config } = require('dotenv');
 const fs = require('fs');
 
 const jsoning = require("jsoning");
